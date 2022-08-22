@@ -1,0 +1,26 @@
+html{
+    font-size: 21px;
+}
+.container{
+    background-color: aquamarine;
+    max-width: 500px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+}
+
+.head{
+    background-color: brown;
+    width: 500px;
+    height: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    display:flex;
+    justify-content: center;
+}
+
+input{
+    width: 400px;
+    
+}
