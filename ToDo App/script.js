@@ -24,9 +24,14 @@ addBtn.addEventListener("click", () => {
 });
 
 
-taskDiv.addEventListener("click", e => {
+taskDiv.addEventListener("dblclick", e => {
     if (e.target.innerText != "") {
         taskDiv.removeChild(e.target);
+    }
+})
+taskDiv.addEventListener("click", e => {
+    if (e.target.innerText != "") {
+        e.target.style.textDecoration = "line-through";
     }
 })
 
