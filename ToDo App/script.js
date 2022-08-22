@@ -1,6 +1,8 @@
 var addBtn = document.querySelector("#add");
 var task = document.querySelector("#addTask")
 var taskDiv = document.querySelector(".tasks");
+var delBtn = document.querySelector("#del")
+let arr = [];
 
 addBtn.addEventListener("click", () => {
 
@@ -17,11 +19,26 @@ addBtn.addEventListener("click", () => {
 
         task.value = "";
     }
-
-    taskDiv.addEventListener("click", () => {
-        var listElement = document.querySelector("li");
-        console.log(listElement.childNodes);
-    })
-
+    
 
 });
+
+
+taskDiv.addEventListener("click", e => {
+    if (e.target.innerText != "") {
+        taskDiv.removeChild(e.target);
+    }
+})
+
+delBtn.addEventListener("click", () => {
+    var li = Array.from(document.querySelectorAll("li"));
+
+    if(li.length > 0){
+        for (let i = 0; i < li.length; i++) {
+            taskDiv.removeChild(li[i]);
+        }
+    }
+
+    dizi = [];
+
+})
