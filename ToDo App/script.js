@@ -14,10 +14,14 @@ addBtn.addEventListener("click", () => {
         li.style.listStyleType = "upper-roman";
         li.append(t);
         taskDiv.append(li);
-        console.log(t);
-        console.log(li);
 
         task.value = "";
     }
+
+    taskDiv.addEventListener("click", () => {
+        var listElement = document.querySelector("li");
+        console.log(listElement.childNodes);
+    })
+
 
 });
