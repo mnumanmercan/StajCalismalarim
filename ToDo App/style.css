@@ -35,21 +35,29 @@ body{
 /*Liste ve input*/
 
 input{
+    border-top: none;
+    border-left: none;
+    
     width: 100%;
     padding: 12px 20px;
     border-radius: 6px;
     box-sizing: border-box;
     font-family: sans-serif;
     font-size:1em;
+    color: rgb(39, 38, 38);
     
-    color: gray;
-    
+}
+
+input:focus{
+    outline: none;
+    background-color: rgb(235, 223, 223);
+    transition: 0.5s;
 }
 
 li{
     font-family: sans-serif;
     font-size: 0.8em;
-    width:auto;
+    width:80%;
     height: 20px;
     color: rgb(255, 255, 255);
     background-color: rgb(42, 51, 68,0.7);
