@@ -5,7 +5,7 @@ var delBtn = document.querySelector("#del")
 let arr = [];
 var isActive = false;
 
-addBtn.addEventListener("click", () => {
+addBtn.addEventListener("", () => {
 
     if (task.value.length == 0) {
         alert("Enter Task please!")
