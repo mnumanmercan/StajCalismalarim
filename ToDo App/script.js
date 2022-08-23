@@ -3,6 +3,7 @@ var task = document.querySelector("#addTask")
 var taskDiv = document.querySelector(".tasks");
 var delBtn = document.querySelector("#del")
 let arr = [];
+var isActive = false;
 
 addBtn.addEventListener("click", () => {
 
@@ -13,7 +14,7 @@ addBtn.addEventListener("click", () => {
         var li = document.createElement("li");
         var input = task.value;
         var t = document.createTextNode(input);
-        li.style.listStyleType = "upper-roman";
+        li.style.listStyleType = "number";
         li.append(t);
         taskDiv.append(li);
 
@@ -29,9 +30,15 @@ taskDiv.addEventListener("dblclick", e => {
         taskDiv.removeChild(e.target);
     }
 })
+
 taskDiv.addEventListener("click", e => {
-    if (e.target.innerText != "") {
+    
+    if (e.target.innerText != "" && isActive==false) {
         e.target.style.textDecoration = "line-through";
+        isActive = true;
+    }else if(e.target.innerText != "" && isActive==true){
+        e.target.style.textDecoration = "none";
+        isActive = false;
     }
 })
 
