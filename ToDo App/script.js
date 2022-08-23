@@ -5,7 +5,7 @@ var delBtn = document.querySelector("#del")
 let arr = [];
 var isActive = false;
 
-addBtn.addEventListener("", () => {
+addBtn.addEventListener("click", () => {
 
     if (task.value.length == 0) {
         alert("Enter Task please!")
@@ -14,10 +14,19 @@ addBtn.addEventListener("", () => {
         var li = document.createElement("li");
         var input = task.value;
         var t = document.createTextNode(input);
-        li.style.listStyleType = "number";
-        li.append(t);
-        taskDiv.append(li);
+        var date = new Date().toLocaleDateString('tr-TR');
+        var span = document.createElement('span');
+        span.style.float = "right";
 
+        span.append(date);
+       
+        li.style.listStyleType = "number";
+        
+        li.append(t);
+        
+        li.append(span);
+        taskDiv.append(li);
+        
         task.value = "";
     }
     
