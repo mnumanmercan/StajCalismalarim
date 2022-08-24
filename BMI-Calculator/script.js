@@ -27,8 +27,10 @@ function calculate(height, weight) {
         return bmi + " Under Weight";
     }else if(bmi > 18.4 && bmi < 25){
         return bmi + " Normal Weight";
-    }else if(bmi > 18.4 && bmi < 25){
+    }else if(bmi > 25 && bmi < 44){
         return bmi + " Over Weight";
+    }else{
+        return bmi + " wtf ? "
     }
 
 }
