@@ -1,9 +1,11 @@
 var height = document.querySelector('#height');
 var weight = document.querySelector('#weight');
 var calculateBtn = document.querySelector('#calculateBtn');
+var resetBtn = document.querySelector("#resetBtn")
 var result = document.querySelector('.result');
 var heightSpan = document.querySelector("#heightSpan");
 var weightSpan = document.querySelector("#weightSpan");
+
 calculateBtn.addEventListener("click", () => {
     result.innerText = "Your BMI : "
     if (height.value.length != "" && weight.value.length == "") {
@@ -17,6 +19,15 @@ calculateBtn.addEventListener("click", () => {
         height.value = "";
         weight.value = "";
     }
+})
+
+resetBtn.addEventListener('click',() => {
+    height.value = "";
+    weight.value = "";
+    heightSpan.innerText = "Your Height : ";
+    weightSpan.innerText = "Your Weight : ";
+    result.innerText = "Your BMI : ";
+
 })
 
 function calculate(height, weight) {

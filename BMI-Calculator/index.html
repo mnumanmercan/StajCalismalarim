@@ -12,25 +12,35 @@
 <body>
     <div class="container">
         <div class="calculateArea">
-            <div class="header">
-                <h1>BMI Calculator</h1>
-            </div>
+            <h1>BMI Calculator</h1>
+            <div class="calculate-row">
                 <label for="height">Height : </label>
                 <input type="text" id="height" placeholder="Height (cm)">
+            </div>
+
             <br>
+            <div class="calculate-row">
                 <label for="weight">Weight : </label>
                 <input type="text" id="weight" placeholder="Weight (kg)">
+            </div>
+
             <br>
+            <div class="button">
+                <button type="reset" id="resetBtn">Reset</button>
                 <button type="submit" id="calculateBtn">Calculate</button>
+            </div>
+
 
             <hr>
-            <div class="values">
-                <span id="heightSpan">Your Height : </span>
-                <br>
-                <span id="weightSpan">Your Weight : </span>
-            </div>
-            <div class="result">
-                Your BMI :
+            <div class="footer-res">
+                <div class="values">
+                    <span id="heightSpan">Your Height : </span>
+                    <br>
+                    <span id="weightSpan">Your Weight : </span>
+                </div>
+                <div class="result">
+                    Your BMI :
+                </div>
             </div>
         </div>
         <div class="table">
