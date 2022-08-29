@@ -1,26 +1,25 @@
 
 html{
     outline: none !important;
+    font-size: 16px;
     
 }
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    
     background-image: url("library.jpg");
     background-size: cover;
 }
 
 .container{
-    width: 600px;
+    width: 60%;
     height: 400px;
     margin-right: auto;
     margin-left: auto;
     background-color: rgb(245, 245, 245,0.8);
     padding: 40px;
     border-radius: 10px;
-    
-    
 }
 
 .quote-box{
@@ -37,13 +36,13 @@ h1{
 }
 
 .buttons{
+    position:fixed;
     padding: 15px;
     margin: 15px;
-    position:absolute;
-    margin-right: auto;
+    display: inline;
     margin-left: auto;
-    top: 320px;
-    
+    margin-right: auto;
+    top: 50%;
 }
 
 button{
@@ -73,4 +72,48 @@ button{
 i{
     font-size: 20px;
     color: rgb(29,155,240);
+}
+
+@media (max-width:900px){
+    html{
+        font-size: 14px;
+    }
+    .container{
+        padding: 30px;
+        border-radius: 10px;
+        height: 420px;
+    }
+    .quote-box{
+        padding: 25px;
+        width: 90%;
+        height: 300px;
+    }
+    h1{
+      font-size: 1.5em;
+    }
+    button{
+        height: 40px;
+        width: 30%;
+    }
+}
+@media (max-width:700px){
+    html{
+        font-size: 12px;
+    }
+    .container{
+        padding: 25px;
+        border-radius: 10px;
+        height: 420px;
+    }
+    .quote-box{
+        padding: 20px;
+        width: 90%;
+    }
+    h1{
+      font-size: 1.5em;
+    }
+    button{
+        height: 30px;
+        width: 25%;
+    }
 }
