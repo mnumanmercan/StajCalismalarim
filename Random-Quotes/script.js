@@ -17,7 +17,7 @@ changeButton.addEventListener('click', () => {
 	.then(response => response.json())
 	.then(result => {
 		console.log(result);
-		choosenQuote.innerText = result.content + '\n';
+		choosenQuote.innerText = ' \" ' + result.content + '  \" \n';
 		source.innerText = " - " + result.author;
 	})
 
