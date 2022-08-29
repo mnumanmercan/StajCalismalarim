@@ -1,55 +1,69 @@
-var addBtn = document.querySelector("#add");
-var task = document.querySelector("#addTask")
-var taskDiv = document.querySelector(".tasks");
-var delBtn = document.querySelector("#del")
-let arr = [];
-var isActive = false;
-var now = new Date();
-var cssDel = "color: gray; font-size:17px; float:right;"
-var cssDate = "font-family:sans-serif; float:right; margin-right:10px"
-var delElement;
-addBtn.addEventListener("click", () => {
+let addBtn = document.querySelector("#add");
+let task = document.querySelector("#addTask")
+let taskDiv = document.querySelector(".tasks");
+let delBtn = document.querySelector("#del")
+let isActive = false;
+let cssDel = "color: gray; font-size:17px; float:right;"
+let cssDate = "font-family:sans-serif; float:right; margin-right:10px"
+let delElement;
 
+window.addEventListener('load' , () => {
+    todos.forEach((todo) => {
+        let li1 = document.createElement("li");
+        li1.append(todo);
+        taskDiv.append(li1);
+    })
+})
+
+const getTodosFromStorage = () => {
+    const storage = JSON.parse(localStorage.getItem('todos'));
+    return (storage) ? storage : [];
+}
+const todos = getTodosFromStorage();
+
+const removeTodo = (target) => {
+    console.log(target);
+}
+
+addBtn.addEventListener("click", () => {
+    let now = new Date();
     if (task.value.length == 0) {
         alert("Enter Task please!")
     } else {
-        var li = document.createElement("li");
+        let li = document.createElement("li");
         li.style.listStyleType = "number";
-        var input = task.value;
-        var t = document.createTextNode(input);
-        var date = now.toLocaleDateString('tr-TR'); var hour = now.getHours(); var min = now.getMinutes();
+        let input = task.value;
+        todos.push(task.value);
+        let t = document.createTextNode(input);
+        let hour = now.getHours(); let min = now.getMinutes();
 
-        var str = date + "   /   " + hour + ":" + min + "  ";
-        var spanDate = document.createElement('span');
+        let str = hour + ":" + min + "  ";
+        let spanDate = document.createElement('span');
         spanDate.style.cssText = cssDate;
         spanDate.append(str);
         delElement = document.createElement('i');
         delElement.classList.add("fa-solid", "fa-trash", "trash");
-
+        delElement.setAttribute('onclick','(removeTodo(this)');
 
         delElement.style.cssText = cssDel;
-
-
+        
+        
+        localStorage.setItem('todos',JSON.stringify(todos));
 
         li.append(t);
         li.append(delElement);
         li.append(spanDate);
 
-
         taskDiv.append(li);
 
         task.value = "";
-
-
+        
     }
 });
-
-
-
-
 taskDiv.addEventListener("dblclick", e => {
     if (e.target.innerText != "") {
         taskDiv.removeChild(e.target);
+
     }
 })
 
@@ -65,14 +79,16 @@ taskDiv.addEventListener("click", e => {
 })
 
 delBtn.addEventListener("click", () => {
-    var li = Array.from(document.querySelectorAll("li"));
+    let li = Array.from(document.querySelectorAll("li"));
 
     if (li.length > 0) {
         for (let i = 0; i < li.length; i++) {
             taskDiv.removeChild(li[i]);
         }
     }
+    localStorage.clear();
 
-    dizi = [];
+
 
 })
+
