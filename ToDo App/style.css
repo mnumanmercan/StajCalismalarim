@@ -3,7 +3,7 @@ html{
 }
 
 body{
-    background-color: blueviolet;
+    background-color: white;
 }
 .container{
     display: inline-block;
@@ -14,7 +14,7 @@ body{
     height: 400px;
     border: 2px solid gray;
     border-radius: 6px;
-    box-shadow: 5px 5px 15px  red;
+    box-shadow: 1px 1px 10px  rgb(0, 0, 0,.2);
 }
 
 .head{
@@ -90,3 +90,16 @@ li{
         height: 40px;
     }
 }
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }

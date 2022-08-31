@@ -7,6 +7,7 @@ let cssDel = "color: gray; font-size:17px; float:right;"
 let cssDate = "font-family:sans-serif; float:right; margin-right:10px"
 let delElement;
 
+
 window.addEventListener('load' , () => {
     todos.forEach((todo) => {
         let li1 = document.createElement("li");
@@ -19,11 +20,7 @@ const getTodosFromStorage = () => {
     const storage = JSON.parse(localStorage.getItem('todos'));
     return (storage) ? storage : [];
 }
-const todos = getTodosFromStorage();
-
-const removeTodo = (target) => {
-    console.log(target);
-}
+let todos = getTodosFromStorage();
 
 addBtn.addEventListener("click", () => {
     let now = new Date();
@@ -41,29 +38,23 @@ addBtn.addEventListener("click", () => {
         let spanDate = document.createElement('span');
         spanDate.style.cssText = cssDate;
         spanDate.append(str);
-        delElement = document.createElement('i');
-        delElement.classList.add("fa-solid", "fa-trash", "trash");
-        delElement.setAttribute('onclick','(removeTodo(this)');
-
-        delElement.style.cssText = cssDel;
-        
-        
-        localStorage.setItem('todos',JSON.stringify(todos));
-
         li.append(t);
-        li.append(delElement);
         li.append(spanDate);
 
         taskDiv.append(li);
-
         task.value = "";
+        localStorage.setItem('todos',JSON.stringify(todos));
         
     }
 });
 taskDiv.addEventListener("dblclick", e => {
     if (e.target.innerText != "") {
-        taskDiv.removeChild(e.target);
+        const itemIndex = todos.indexOf(e.target.innerText)
+        console.log(itemIndex)
 
+        todos.splice(itemIndex,1)
+        localStorage.setItem('todos',JSON.stringify(todos));
+        taskDiv.removeChild(e.target);
     }
 })
 
